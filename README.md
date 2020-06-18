@@ -34,3 +34,31 @@ dotbundle vim.sh /usr/share/vim/vimfiles/:~/.vim ~/.vim:~/.vim ~/.vimrc:~/.vimrc
 ./vim.sh
 ```
 ![screen2.png](screen2.png)
+
+or alternatively, just copy the contents of the bundle to your clipboard and paste it in terminal on the other machine
+
+a.sh:
+```
+#!/bin/bash
+# a/txt1 -> a/txt1
+echo "unpacking a/txt1"
+mkdir -p a
+cat << EOFEOF | base64 -d > a/txt1
+YWFhYQo=
+EOFEOF
+
+# a/b/txt3 -> a/b/txt3
+echo "unpacking a/b/txt3"
+mkdir -p a/b
+cat << EOFEOF | base64 -d > a/b/txt3
+Y2NjYwo=
+EOFEOF
+
+# a/txt2 -> a/txt2
+echo "unpacking a/txt2"
+mkdir -p a
+cat << EOFEOF | base64 -d > a/txt2
+YmJiYgo=
+EOFEOF
+```
+![screen3.png](screen3.png)
